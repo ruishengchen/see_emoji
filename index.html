@@ -10,6 +10,9 @@
 <meta property="og:description" content="🫸🫨🫷如果你看不到這些符號，表示你需要See Emoji！">
 <meta property="og:title" content="See Emoji">
 <meta property="og:image" content="/see_emoji/social.jpg">
+<meta property="twitter:description" content="🫸🫨🫷如果你看不到這些符號，表示你需要See Emoji！">
+<meta property="twitter:title" content="See Emoji">
+<meta property="twitter:image" content="/see_emoji/social.jpg">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L6BCXR7MW"></script>
 <script>
@@ -179,6 +182,41 @@ cursor: pointer;
   background-color: #ccc;
 }
 
+
+
+#popupWindow2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+#popupWindow2 h3 {
+  color: #fff;
+}
+
+#popupWindow2 button {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#popupWindow2 button:hover {
+  background-color: #ccc;
+}
+
 	</style>
 </head>
 <body>
@@ -191,6 +229,14 @@ cursor: pointer;
   <button id="closeBtn">關閉</button>
 </div>
 
+<div id="popupWindow2">
+  <h3>測試</h3>
+  <button class="copyBtn" data-text="Hello">Hello</button>
+  <button class="copyBtn" data-text="World">World</button>
+  <button class="copyBtn" data-text="JavaScript">JavaScript</button>
+  <button id="closeBtn2">關閉</button>
+</div>
+
 <main>
 <img id="banner" src="/see_emoji/banner.png"></img>
 <br><br>
@@ -199,7 +245,7 @@ cursor: pointer;
 <div id="output"></div>
 <br><br>
 <button id="popupBtn">尋找符號</button><br><br>
-<button onclick="window.location='http://www.portaly.cc/it._.learning';">下載APP</button><br><br>
+<button id="popupBtn2">下載APP</button><br><br>
 <button onclick="window.open('http://www.portaly.cc/it._.learning', '_blank');">聯繫開發者</button><br><br>
 <p>本工具由小學生 學電腦開發提供</p>
 <p>Emoji圖片來自EmojiAll</p>
@@ -227,10 +273,17 @@ copyBtns.forEach(function(copyBtn) {
     });
   });
 });
-
+const popupBtn2 = document.getElementById('popupBtn2');
+const popupWindow2 = document.getElementById('popupWindow2');
+popupBtn2.addEventListener('click', function() {
+  popupWindow2.style.display = 'block';
+});
 // 點擊關閉按鈕隱藏彈出視窗
 closeBtn.addEventListener('click', function() {
   popupWindow.style.display = 'none';
+});
+closeBtn2.addEventListener('click', function() {
+  popupWindow2.style.display = 'none';
 });
 
 
