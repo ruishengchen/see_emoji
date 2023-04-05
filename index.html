@@ -152,15 +152,14 @@ cursor: pointer;
 #popupWindow {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 999;
   padding: 10px;
   box-sizing: border-box;
   align-items: center;
+justify-content: center;
 }
 
 #popupWindow h3 {
@@ -187,16 +186,17 @@ cursor: pointer;
 #popupWindow2 {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 999;
   padding: 10px;
   box-sizing: border-box;
   align-items: center;
+justify-content: center;
+overflow: auto;
 }
+
 
 #popupWindow2 h3 {
   color: #fff;
@@ -222,19 +222,32 @@ cursor: pointer;
 <body>
 <!-- 彈出視窗 -->
 <div id="popupWindow">
-  <h3>選擇要複製的文字</h3>
-  <button class="copyBtn" data-text="Hello">Hello</button>
-  <button class="copyBtn" data-text="World">World</button>
-  <button class="copyBtn" data-text="JavaScript">JavaScript</button>
+  <h3>點選以複製符號</h3>
+  <button class="copyBtn" data-text="🫷">🫷 右手掌</button>
+  <button class="copyBtn" data-text="🫸">🫸 左手掌</button>
+  <button class="copyBtn" data-text="🫨">🫨 晃動臉</button>
+  <button class="copyBtn" data-text="🩷">🩷 粉紅愛心</button>
+  <button class="copyBtn" data-text="🩵">🩵 淺藍愛心</button>
+  <button class="copyBtn" data-text="🩶">🩶 灰色愛心</button>
+  <button class="copyBtn" data-text="🛜">🛜 Wi-Fi</button>
   <button id="closeBtn">關閉</button>
 </div>
 
 <div id="popupWindow2">
-  <h3>測試</h3>
-  <button class="copyBtn" data-text="Hello">Hello</button>
-  <button class="copyBtn" data-text="World">World</button>
-  <button class="copyBtn" data-text="JavaScript">JavaScript</button>
-  <button id="closeBtn2">關閉</button>
+  <h3>下載APP（僅限iPhone）</h3>
+ <img src="/see_emoji/d1.png"></img>
+<p>請使用Safari瀏覽器開啟本網頁</p>
+<br>
+<img src="/see_emoji/d2.png"></img>
+<p>點選畫面底部的分享按鈕</p>
+<br>
+<img src="/see_emoji/d3.png"></img>
+<p>在選單中加入主畫面並確認</p>
+<br>
+<img src="/see_emoji/d4.png"></img>
+<p>直接從主畫面快速開啟See Emoji</p>
+<br>
+ <button id="closeBtn2">完成</button>
 </div>
 
 <main>
@@ -268,6 +281,7 @@ copyBtns.forEach(function(copyBtn) {
     const text = this.getAttribute('data-text');
     navigator.clipboard.writeText(text).then(function() {
       console.log('Text copied to clipboard: ' + text);
+      alert("複製成功");
     }, function() {
       console.error('Failed to copy text to clipboard');
     });
@@ -276,7 +290,7 @@ copyBtns.forEach(function(copyBtn) {
 const popupBtn2 = document.getElementById('popupBtn2');
 const popupWindow2 = document.getElementById('popupWindow2');
 popupBtn2.addEventListener('click', function() {
-  popupWindow2.style.display = 'block';
+  popupWindow2.style.display = 'inline-block';
 });
 // 點擊關閉按鈕隱藏彈出視窗
 closeBtn.addEventListener('click', function() {
